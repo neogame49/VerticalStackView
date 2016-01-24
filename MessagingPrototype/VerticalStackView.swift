@@ -9,15 +9,29 @@
 import UIKit
 import SnapKit
 
+@IBDesignable
 class VerticalStackView: UIView {
 
     var views: [UIView] = [] {
+        willSet {
+            self.views.forEach{ $0.removeFromSuperview() }
+        }
+        
         didSet {
-            self.updateConstraints()
+            self.views.forEach{ self.addSubview($0) }
+            self.setNeedsUpdateConstraints()
+            self.invalidateIntrinsicContentSize()
         }
     }
+    
+    var verticalOffset: CGFloat = 5.0 {
+        didSet {
+            self.setNeedsUpdateConstraints()
+        }
+    }
+    
     var topView: UIView?
-
+    
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -26,8 +40,8 @@ class VerticalStackView: UIView {
     }
     */
     override func updateConstraints() {
-        super.updateConstraints()
         self.resetViews()
+        super.updateConstraints()
     }
 
     override class func requiresConstraintBasedLayout() -> Bool {
@@ -35,29 +49,36 @@ class VerticalStackView: UIView {
     }
 
     override func intrinsicContentSize() -> CGSize {
-        return CGSize(width: 200, height: 200)
+        var height: CGFloat = 0.0
+        var width: CGFloat = 0.0
+        
+        for view in self.views {
+            height += view.frame.height
+            if (view.frame.width > width) {
+                width = view.frame.width
+            }
+        }
+        
+        return CGSize(width: width, height: height)
     }
 
 
     func resetViews() {
-        self.views.forEach{ $0.removeFromSuperview() }
         self.topView = nil
 
         for view in self.views.reverse() {
-
-            self.addSubview(view)
             view.snp_remakeConstraints(closure: { (make) -> Void in
-                make.left.equalTo(view.superview!).offset(0)
-                make.right.equalTo(view.superview!).offset(0)
+                make.leading.equalTo(view.superview!)
+                make.trailing.lessThanOrEqualTo(view.superview!)
 
                 if let topView = self.topView {
-                    make.bottom.equalTo(topView).offset(0)
+                    make.bottom.equalTo(topView.snp_top).offset(-self.verticalOffset)
                 } else {
-                    make.bottom.equalTo(view.superview!).offset(0)
+                    make.bottom.equalTo(view.superview!)
                 }
 
                 if let first = self.views.first where first === view {
-                    //make.top.equalTo(view.superview!).offset(0)
+                    make.top.greaterThanOrEqualTo(view.superview!)
                 }
                 self.topView = view
             })

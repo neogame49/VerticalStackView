@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MFc-Q4-XYp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjE-wi-0aG" customClass="VerticalStackView" customModule="MessagingPrototype" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IjE-wi-0aG" customClass="VerticalStackView" customModule="MessagingPrototype" customModuleProvider="target">
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                                 <color key="backgroundColor" red="1" green="0.41838246420000003" blue="0.38664064790000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IjE-wi-0aG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="216" id="9gh-Jl-I3N"/>
-                            <constraint firstItem="IjE-wi-0aG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="180" id="I4b-3v-Zth"/>
                             <constraint firstItem="IjE-wi-0aG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PLX-wx-4CK"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="IjE-wi-0aG" secondAttribute="trailing" id="Pb7-3y-azj"/>
                             <constraint firstItem="IjE-wi-0aG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dyZ-Lz-Wkt"/>
+                            <constraint firstItem="IjE-wi-0aG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rPI-XE-DBn"/>
                         </constraints>
                     </view>
                     <connections>
@@ -36,6 +38,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Messaging Controller-->
+        <scene sceneID="W0o-c3-eDG">
+            <objects>
+                <tableViewController id="MFc-Q4-XYp" customClass="MessagingController" customModule="MessagingPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" id="fLV-so-pPF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessagingCell" id="s7P-Xu-gaL" customClass="MessagingCell" customModule="MessagingPrototype" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="105"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s7P-Xu-gaL" id="jO3-h9-JlT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="104.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-Z0-4sm">
+                                            <rect key="frame" x="8" y="46" width="50" height="50"/>
+                                            <color key="backgroundColor" red="0.2342709808" green="1" blue="0.27155215760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="3yA-NL-hZS"/>
+                                                <constraint firstAttribute="height" constant="50" id="PUx-gw-L9N"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4RR-aS-CrC" customClass="VerticalStackView" customModule="MessagingPrototype" customModuleProvider="target">
+                                            <rect key="frame" x="61" y="46" width="300" height="50"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4RR-aS-CrC" firstAttribute="top" secondItem="Hyd-Z0-4sm" secondAttribute="top" priority="250" id="0oi-fB-fsj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4RR-aS-CrC" secondAttribute="bottom" id="Ge8-YW-AES"/>
+                                        <constraint firstItem="4RR-aS-CrC" firstAttribute="width" secondItem="jO3-h9-JlT" secondAttribute="width" multiplier="0.5" id="Gkg-hS-Kke"/>
+                                        <constraint firstItem="4RR-aS-CrC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jO3-h9-JlT" secondAttribute="topMargin" id="MIf-iC-LH4"/>
+                                        <constraint firstItem="4RR-aS-CrC" firstAttribute="leading" secondItem="Hyd-Z0-4sm" secondAttribute="trailing" constant="3" id="Ql6-nx-Lyl"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Hyd-Z0-4sm" secondAttribute="bottom" constant="0.5" id="fS6-Nd-2Bg"/>
+                                        <constraint firstItem="Hyd-Z0-4sm" firstAttribute="leading" secondItem="jO3-h9-JlT" secondAttribute="leadingMargin" id="rZa-DP-dc5"/>
+                                        <constraint firstItem="Hyd-Z0-4sm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jO3-h9-JlT" secondAttribute="topMargin" id="uOo-aQ-jeb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="Hyd-Z0-4sm" id="x1t-Nr-HJU"/>
+                                    <outlet property="messagingStask" destination="4RR-aS-CrC" id="ESr-zB-RxT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MFc-Q4-XYp" id="Dtj-LL-ZRv"/>
+                            <outlet property="delegate" destination="MFc-Q4-XYp" id="9eJ-xS-mLw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fe6-At-G6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="987"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="5ZQ-1t-G12">
+            <objects>
+                <viewController id="1FO-eX-coo" customClass="ViewController2" customModule="MessagingPrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="637-tN-ZMo"/>
+                        <viewControllerLayoutGuide type="bottom" id="wi6-Ho-xvX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7bY-nO-q0Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-pn-MQj" customClass="MessagingView" customModule="MessagingPrototype" customModuleProvider="target">
+                                <rect key="frame" x="20" y="263" width="560" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pp5-pn-MQj" firstAttribute="centerX" secondItem="7bY-nO-q0Y" secondAttribute="centerX" id="IEO-Gh-u3j"/>
+                            <constraint firstItem="Pp5-pn-MQj" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="7bY-nO-q0Y" secondAttribute="trailingMargin" id="IqY-gf-a1f"/>
+                            <constraint firstItem="Pp5-pn-MQj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7bY-nO-q0Y" secondAttribute="leadingMargin" id="NpM-lC-hFs"/>
+                            <constraint firstItem="Pp5-pn-MQj" firstAttribute="centerY" secondItem="7bY-nO-q0Y" secondAttribute="centerY" id="wjS-wP-uGr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messagingView" destination="Pp5-pn-MQj" id="h6H-4o-nQd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f7B-pi-IBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="1739"/>
         </scene>
     </scenes>
 </document>
