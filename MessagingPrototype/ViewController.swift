@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+
+
     @IBOutlet weak var stack: VerticalStackView!
     var strings = ["thirty label", "second label", "first label", "long text ckvkfjgfjgfjgfjgbv bnbfjgbfhgfhjgb jdffhjfhj djfdjhfh djfhjdfhj djhfjh"]
     override func viewDidLoad() {
@@ -22,6 +24,7 @@ class ViewController: UIViewController {
         print(self.view.translatesAutoresizingMaskIntoConstraints)
         let labels = self.strings.map { (str) -> MessagingView in
             let mView = MessagingView()
+
             mView.label.text = str
             //mView.labelEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
             return mView

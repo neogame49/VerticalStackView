@@ -13,7 +13,7 @@ class ViewController2: UIViewController {
     @IBOutlet weak var messagingView: MessagingView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.messagingView.labelEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        //self.messagingView.labelEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 
         // Do any additional setup after loading the view.
     }
@@ -26,6 +26,7 @@ class ViewController2: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.messagingView.label.text = "kjnfkfkjgfhjgkhfgjhfgjkhjkgf djgkfhjghfghfkj djkfhgkfhgjkfhgj fjgfjkgfjk fjgfjkghjf fjgjfghfj fjghjfghjf fjgfjghjf "
+        self.messagingView.preferedWidth = 400
     }
     
 

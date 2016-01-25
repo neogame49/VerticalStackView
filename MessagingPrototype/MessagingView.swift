@@ -21,8 +21,14 @@ class MessagingView: UIView {
     
     var labelEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)/*UIEdgeInsetsZero*/ {
         didSet {
-            self.setNeedsUpdateConstraints()
             self.invalidateIntrinsicContentSize()
+            self.setNeedsLayout()
+        }
+    }
+    var preferedWidth: CGFloat = 50 {
+        didSet {
+            self.invalidateIntrinsicContentSize()
+            self.setNeedsLayout()
         }
     }
     
@@ -50,21 +56,27 @@ class MessagingView: UIView {
     
     func setup() {
         self.addSubview(self.label)
-        self.layer.cornerRadius = 15.0
-        self.backgroundColor = UIColor.redColor()
+        //self.layer.cornerRadius = 15.0
+        self.backgroundColor = UIColor.blueColor()
     }
     
-    override class func requiresConstraintBasedLayout() -> Bool {
+    /*override class func requiresConstraintBasedLayout() -> Bool {
         return true
-    }
+    }*/
     
     override func intrinsicContentSize() -> CGSize {
         //return UIEdgeInsetsInsetRect(self.label.frame, self.labelEdgeInsets).size
         //return self.label.frame.size
-        return CGSize(width: 10, height: 10)
+        return self.preferedContentSizeForWidth(self.preferedWidth)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let labelFrame = UIEdgeInsetsInsetRect(self.bounds, self.labelEdgeInsets)
+        self.label.frame = labelFrame
     }
     
-    override func updateConstraints() {
+    /*override func updateConstraints() {
         
         self.label.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(label.superview!).inset(self.labelEdgeInsets).priorityHigh()
@@ -79,6 +91,15 @@ class MessagingView: UIView {
         }
         
         super.updateConstraints()
+    }*/
+
+    func preferedContentSizeForWidth(width: CGFloat) -> CGSize {
+        let adjustmendWidth = UIEdgeInsetsInsetRect(CGRect(x: 0, y: 0, width: width, height: 0), self.labelEdgeInsets).width // width adjustment by insets
+        let preferedSizeForLabel = self.label.sizeThatFits(CGSize(width: adjustmendWidth, height: CGFloat.max))
+
+        let result = CGSize(width: preferedSizeForLabel.width + self.labelEdgeInsets.left + self.labelEdgeInsets.right, height:
+                            preferedSizeForLabel.height + self.labelEdgeInsets.top + self.labelEdgeInsets.bottom)
+        return result
     }
 
 }
