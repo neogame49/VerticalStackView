@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		308BD1991C53EF8300C5B1DE /* MessagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BD1981C53EF8300C5B1DE /* MessagingController.swift */; };
 		308BD19B1C53FAD900C5B1DE /* MessagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BD19A1C53FAD900C5B1DE /* MessagingCell.swift */; };
-		308BD19D1C54B63300C5B1DE /* MessagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BD19C1C54B63300C5B1DE /* MessagingView.swift */; };
+		308BD19D1C54B63300C5B1DE /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BD19C1C54B63300C5B1DE /* MessageView.swift */; };
 		308BD19F1C54C3C400C5B1DE /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BD19E1C54C3C400C5B1DE /* ViewController2.swift */; };
 		30ED0BA21C552E5D006BE348 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30ED0BA11C552E5C006BE348 /* Storyboard.storyboard */; };
 		BA81A31C1C521B2200392DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81A31B1C521B2200392DA7 /* AppDelegate.swift */; };
@@ -25,7 +25,7 @@
 		27CDE24D2EB25304E832FB30 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		308BD1981C53EF8300C5B1DE /* MessagingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingController.swift; sourceTree = "<group>"; };
 		308BD19A1C53FAD900C5B1DE /* MessagingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingCell.swift; sourceTree = "<group>"; };
-		308BD19C1C54B63300C5B1DE /* MessagingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingView.swift; sourceTree = "<group>"; };
+		308BD19C1C54B63300C5B1DE /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		308BD19E1C54C3C400C5B1DE /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		30ED0BA11C552E5C006BE348 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		BA81A3181C521B2200392DA7 /* MessagingPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +91,7 @@
 				BA81A3271C521B2200392DA7 /* Info.plist */,
 				308BD1981C53EF8300C5B1DE /* MessagingController.swift */,
 				308BD19A1C53FAD900C5B1DE /* MessagingCell.swift */,
-				308BD19C1C54B63300C5B1DE /* MessagingView.swift */,
+				308BD19C1C54B63300C5B1DE /* MessageView.swift */,
 				308BD19E1C54C3C400C5B1DE /* ViewController2.swift */,
 				30ED0BA11C552E5C006BE348 /* Storyboard.storyboard */,
 			);
@@ -233,7 +233,7 @@
 				BA81A31E1C521B2200392DA7 /* ViewController.swift in Sources */,
 				BA81A32E1C521CB900392DA7 /* VerticalStackView.swift in Sources */,
 				308BD1991C53EF8300C5B1DE /* MessagingController.swift in Sources */,
-				308BD19D1C54B63300C5B1DE /* MessagingView.swift in Sources */,
+				308BD19D1C54B63300C5B1DE /* MessageView.swift in Sources */,
 				BA81A31C1C521B2200392DA7 /* AppDelegate.swift in Sources */,
 				308BD19B1C53FAD900C5B1DE /* MessagingCell.swift in Sources */,
 			);

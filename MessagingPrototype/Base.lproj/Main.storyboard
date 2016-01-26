@@ -96,15 +96,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-pn-MQj" customClass="MessagingView" customModule="MessagingPrototype" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-pn-MQj" customClass="MessageView" customModule="MessagingPrototype" customModuleProvider="target">
                                 <rect key="frame" x="20" y="263" width="560" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Pp5-pn-MQj" firstAttribute="leading" secondItem="7bY-nO-q0Y" secondAttribute="leadingMargin" id="3Ss-Fl-5cI"/>
                             <constraint firstItem="Pp5-pn-MQj" firstAttribute="centerX" secondItem="7bY-nO-q0Y" secondAttribute="centerX" id="8iz-ZL-Z9s"/>
                             <constraint firstItem="Pp5-pn-MQj" firstAttribute="centerY" secondItem="7bY-nO-q0Y" secondAttribute="centerY" id="m1L-Hk-0mX"/>
+                            <constraint firstItem="Pp5-pn-MQj" firstAttribute="trailing" secondItem="7bY-nO-q0Y" secondAttribute="trailingMargin" id="neS-l6-UQK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -113,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7B-pi-IBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276" y="1750"/>
+            <point key="canvasLocation" x="321" y="1892"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yfg-HP-MTJ">

@@ -18,7 +18,7 @@ class MessagingController: UITableViewController {
             ["first label"],
             ["second label", "first label"],
             ["thirty label", "second label", "first label"],
-            ["thirty label", "second label", "first label", "long text ckvkfjgfjgfjgfjgbv bnbfjgbfhgfhjgb jdffhjfhj djfdjhfh djfhjdfhj djhfjh "]
+            ["thirty label", "second label", "first label", "long text ckvkfjgfjgfjgfjgbv bnbfjgbfhgfhjgb jdffhjfhj djfdjhfh djfhjdfhj djhfjh ", "fk lfklfkdf gtjuirt itroi bkv kbkb gjfogi gijh high hgohi ghghio higoh hoig oihghogh io hgo gohgo"]
         ]
         
         for _ in 1...10 {
@@ -34,18 +34,22 @@ class MessagingController: UITableViewController {
         return stringArray
     }()
 
-    var rowHeightCache: [NSIndexPath : CGFloat] = [:]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.separatorStyle = .None
-        
-        /*self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 44.0*/
+        MessagingCell.messagingViewWidth = self.tableView.frame.size.width / 2.0
+        //self.tableView.separatorStyle = .None
+
     }
 
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        print("viewWillTransitionToSize")
+        MessagingCell.messagingViewWidth = size.width / 2.0
+
+        let visibleCells = self.tableView.visibleCells
+        self.tableView.reloadRowsAtIndexPaths(visibleCells.map{ self.tableView.indexPathForCell($0)!}, withRowAnimation: .None)
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -67,16 +71,10 @@ class MessagingController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if let cachedHeight = self.rowHeightCache[indexPath] {
-            return cachedHeight
-        }
+
         let messages = self.cellStrings[indexPath.row]
          let height = MessagingCell.heightForMessages(messages)
-        self.rowHeightCache[indexPath] = height
         return height
     }
 
-    /*override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
-    }*/
 }

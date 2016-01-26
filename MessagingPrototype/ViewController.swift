@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         //
         print(self.view.translatesAutoresizingMaskIntoConstraints)
-        let labels = self.strings.map { (str) -> MessagingView in
-            let mView = MessagingView()
+        let labels = self.strings.map { (str) -> MessageView in
+            let mView = MessageView()
 
             mView.label.text = str
             //mView.labelEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
