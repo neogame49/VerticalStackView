@@ -27,7 +27,7 @@ class ViewController2: UIViewController {
         super.viewWillAppear(animated)
         self.messagingView.label.text = "kjnfkfkjgfhjgkhfgjhfgjkhjfjgkg fkjgfkg fhg kgf djgkfhjghfghfkj djkfhgkfhgjkfhgj fjgfjkgfjk fjgfjkghjf fjgjfghfj fjghjfghjf fjgfjghjf "
         //self.messagingView.frame.size.width = 200
-        self.messagingView.appearanceMode = .LeftSideWithArrow
+        self.messagingView.appearanceMode = .LeftSide
     }
     
 

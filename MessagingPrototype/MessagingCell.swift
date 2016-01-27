@@ -25,7 +25,12 @@ class MessagingCell: UITableViewCell {
                 let messagingView = MessageView()
                 messagingView.label.text = message
                 messagingView.backgroundColor = UIColor.clearColor()
-                messagingView.appearanceMode = .LeftSideWithArrow
+                messagingView.appearanceMode = .RightSide
+                if let lastMessage = self.messages.last where message == lastMessage {
+                    messagingView.showArrow = true
+                } else {
+                    messagingView.showArrow = false
+                }
                 self.contentView.addSubview(messagingView)
                 return messagingView
             })
@@ -50,6 +55,9 @@ class MessagingCell: UITableViewCell {
 
         var startPoint = CGPoint(x: MessagingCell.avatarHeight + MessagingCell.verticalOffset + MessagingCell.verticalOffset, y:
             self.contentView.frame.size.height - MessagingCell.verticalOffset)
+        /*var startPoint = CGPoint(x: self.avatarImageView.frame.maxX + MessagingCell.verticalOffset, y:
+            self.avatarImageView.frame.maxY)*/
+
         for messagingView in self.messagingViews.reverse() {
             let size = messagingView.preferredContentSizeForWidth(MessagingCell.messagingViewWidth)
 

@@ -37,7 +37,9 @@ class MessagingController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MessagingCell.messagingViewWidth = self.tableView.frame.size.width / 2.0
-        //self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .None
+        /*self.tableView.estimatedRowHeight = 70
+        self.tableView.rowHeight = UITableViewAutomaticDimension*/
 
     }
 

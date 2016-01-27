@@ -10,15 +10,22 @@ import UIKit
 @IBDesignable
 class MessageView: UIView {
     enum  AppearanceMode {
-        case LeftSide // without arrow
-        case RightSide // without arrow
-        case LeftSideWithArrow
-        case RightSideWithArrow
+        /// mode with offset from the left side. If showArrow equal true, arrow will be drawed on the left side.
+        case LeftSide
+        /// mode with offset from the right side. If showArrow equal true, arrow will be drawed on the right side.
+        case RightSide
     }
 
     var appearanceMode: AppearanceMode = .LeftSide {
         didSet {
             self.setNeedsLayout()
+            self.setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable
+    var showArrow: Bool = false {
+        didSet {
             self.setNeedsDisplay()
         }
     }
@@ -73,7 +80,6 @@ class MessageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(self.label)
-
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -92,8 +98,7 @@ class MessageView: UIView {
         var labelFrame = UIEdgeInsetsInsetRect(self.bounds, self.labelEdgeInsets)
         labelFrame.size.width -= self.arrowWidth
         switch self.appearanceMode {
-            case .LeftSide: fallthrough
-            case .LeftSideWithArrow:
+            case .LeftSide:
                 labelFrame.origin.x += self.arrowWidth
             default:
                 break
@@ -124,42 +129,41 @@ class MessageView: UIView {
         var bubbleRect = rect
 
         switch self.appearanceMode {
-        case .LeftSide: fallthrough
-        case .LeftSideWithArrow:
-            bubbleRect.origin.x += self.arrowWidth
-            bubbleRect.size.width -= self.arrowWidth
-        case .RightSide: fallthrough
-        case .RightSideWithArrow:
-            bubbleRect.size.width -= self.arrowWidth
+            case .LeftSide:
+                bubbleRect.origin.x += self.arrowWidth
+                bubbleRect.size.width -= self.arrowWidth
+            case .RightSide:
+                bubbleRect.size.width -= self.arrowWidth
         }
 
         var cornersToRounding: UIRectCorner = .AllCorners
-        switch self.appearanceMode {
-        case .LeftSideWithArrow:
-            cornersToRounding = [.TopLeft, .TopRight, .BottomRight]
-        case.RightSideWithArrow:
-            cornersToRounding = [.TopLeft, .TopRight, .BottomLeft]
-        default: break
+        if self.showArrow {
+            switch self.appearanceMode {
+                case .LeftSide:
+                    cornersToRounding = [.TopLeft, .TopRight, .BottomRight]
+                case.RightSide:
+                    cornersToRounding = [.TopLeft, .TopRight, .BottomLeft]
+            }
         }
         return UIBezierPath(roundedRect: bubbleRect, byRoundingCorners: cornersToRounding, cornerRadii: CGSize(width: self.bubbleCornerRadius, height: self.bubbleCornerRadius))
     }
 
     func arrowPathForRect(rect: CGRect) -> UIBezierPath? {
+        guard self.showArrow else { return nil }
+
         var firstPoint = CGPointZero
         var secondPoint = CGPointZero
         var thirdPoint = CGPointZero
 
         switch self.appearanceMode {
-        case .LeftSideWithArrow:
-            firstPoint = CGPoint(x: rect.origin.x , y: rect.maxY)
-            secondPoint = CGPoint(x: rect.origin.x + self.arrowWidth , y: rect.maxY)
-            thirdPoint = CGPoint(x: rect.origin.x + self.arrowWidth , y: rect.maxY - self.arrowHeight)
-        case .RightSideWithArrow:
-            firstPoint = CGPoint(x: rect.maxX, y: rect.maxY)
-            secondPoint = CGPoint(x: rect.maxX - self.arrowWidth , y: rect.maxY)
-            thirdPoint = CGPoint(x: rect.maxX - self.arrowWidth , y: rect.maxY - self.arrowHeight)
-        default:
-            return nil // for else cases no need draw  arrow
+            case .LeftSide:
+                firstPoint = CGPoint(x: rect.origin.x , y: rect.maxY)
+                secondPoint = CGPoint(x: rect.origin.x + self.arrowWidth , y: rect.maxY)
+                thirdPoint = CGPoint(x: rect.origin.x + self.arrowWidth , y: rect.maxY - self.arrowHeight)
+            case .RightSide:
+                firstPoint = CGPoint(x: rect.maxX, y: rect.maxY)
+                secondPoint = CGPoint(x: rect.maxX - self.arrowWidth , y: rect.maxY)
+                thirdPoint = CGPoint(x: rect.maxX - self.arrowWidth , y: rect.maxY - self.arrowHeight)
         }
 
         let arrowPath = UIBezierPath()
