@@ -15,7 +15,7 @@ class NotDeliveredPatientMessageCell: PatientMessageCell {
     let tryAgainButton: UIButton = {
         let button = UIButton()
         button.setTitle("Try again", forState: .Normal)
-        button.titleLabel?.font = MessageCell.deliveredLabelFont
+        button.titleLabel?.font = MessageCell.AuxiliaryElementsFont
         button.setTitleColor(UIColor.redColor(), forState: .Normal)
 
         return button

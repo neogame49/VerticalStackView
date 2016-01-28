@@ -16,12 +16,12 @@ class MessageCell: UITableViewCell {
     static let OffsetBetweenDeliveredLabelAndLastMessageView: CGFloat = 2.0
     static let OffsetBetweenMessageViews: CGFloat = 4.0
 
-    static var messageFont = UIFont.systemFontOfSize(16.0) {
+    static var MessageFont = UIFont.systemFontOfSize(16.0) {
         didSet {
             self.messageViewForCalculation = self.messageView()
         }
     }
-    static var deliveredLabelFont = UIFont.systemFontOfSize(12.0)
+    static var AuxiliaryElementsFont = UIFont.systemFontOfSize(12.0) // font for delivered label and try again button
     var deliveredLabelOffsetFromMessageView: CGFloat = 16.0
     var messageViewEdgeOffset: CGFloat {
         if self.traitCollection.userInterfaceIdiom == .Pad { // for ipads
@@ -48,14 +48,14 @@ class MessageCell: UITableViewCell {
     }
 
     class func HeightForDeliveredText(deliveredText: String) -> CGFloat {
-        let attributes: [String: AnyObject] = [NSFontAttributeName: self.deliveredLabelFont]
+        let attributes: [String: AnyObject] = [NSFontAttributeName: self.AuxiliaryElementsFont]
         return (deliveredText as NSString).sizeWithAttributes(attributes).height
     }
 
     // MARK: -
     let deliveredLabel: UILabel = {
         let label = UILabel()
-        label.font = MessageCell.deliveredLabelFont
+        label.font = MessageCell.AuxiliaryElementsFont
         label.textColor = UIColor.lightGrayColor()
         return label
     }()
@@ -63,7 +63,7 @@ class MessageCell: UITableViewCell {
     /// factory method for MessageView
     class func messageView() -> MessageView {
         let messageView = MessageView()
-        messageView.label.font = self.messageFont
+        messageView.label.font = self.MessageFont
         messageView.backgroundColor = UIColor.clearColor()
         messageView.labelEdgeInsets = UIEdgeInsets(top: 14, left: 12, bottom: 14, right: 10)
         return messageView
