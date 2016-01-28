@@ -13,6 +13,8 @@
 		308BD19F1C54C3C400C5B1DE /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308BD19E1C54C3C400C5B1DE /* ViewController2.swift */; };
 		30ED0BA21C552E5D006BE348 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30ED0BA11C552E5C006BE348 /* Storyboard.storyboard */; };
 		BA1511581C58F0130025BF9B /* PhysicianMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1511571C58F0130025BF9B /* PhysicianMessageCell.swift */; };
+		BA15115A1C5917D40025BF9B /* PatientMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1511591C5917D40025BF9B /* PatientMessageCell.swift */; };
+		BA15115C1C5A31F30025BF9B /* NotDeliveredPatientMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA15115B1C5A31F30025BF9B /* NotDeliveredPatientMessageCell.swift */; };
 		BA1A9CC61C58BEFF00A6301D /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1A9CC51C58BEFE00A6301D /* MessageCell.swift */; };
 		BA81A31C1C521B2200392DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81A31B1C521B2200392DA7 /* AppDelegate.swift */; };
 		BA81A31E1C521B2200392DA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81A31D1C521B2200392DA7 /* ViewController.swift */; };
@@ -31,6 +33,8 @@
 		308BD19E1C54C3C400C5B1DE /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		30ED0BA11C552E5C006BE348 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		BA1511571C58F0130025BF9B /* PhysicianMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicianMessageCell.swift; sourceTree = "<group>"; };
+		BA1511591C5917D40025BF9B /* PatientMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientMessageCell.swift; sourceTree = "<group>"; };
+		BA15115B1C5A31F30025BF9B /* NotDeliveredPatientMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotDeliveredPatientMessageCell.swift; sourceTree = "<group>"; };
 		BA1A9CC51C58BEFE00A6301D /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		BA81A3181C521B2200392DA7 /* MessagingPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessagingPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA81A31B1C521B2200392DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				30ED0BA11C552E5C006BE348 /* Storyboard.storyboard */,
 				BA1A9CC51C58BEFE00A6301D /* MessageCell.swift */,
 				BA1511571C58F0130025BF9B /* PhysicianMessageCell.swift */,
+				BA1511591C5917D40025BF9B /* PatientMessageCell.swift */,
+				BA15115B1C5A31F30025BF9B /* NotDeliveredPatientMessageCell.swift */,
 			);
 			path = MessagingPrototype;
 			sourceTree = "<group>";
@@ -242,8 +248,10 @@
 				BA81A32E1C521CB900392DA7 /* VerticalStackView.swift in Sources */,
 				308BD1991C53EF8300C5B1DE /* MessagingController.swift in Sources */,
 				308BD19D1C54B63300C5B1DE /* MessageView.swift in Sources */,
+				BA15115A1C5917D40025BF9B /* PatientMessageCell.swift in Sources */,
 				BA81A31C1C521B2200392DA7 /* AppDelegate.swift in Sources */,
 				308BD19B1C53FAD900C5B1DE /* MessagingCell.swift in Sources */,
+				BA15115C1C5A31F30025BF9B /* NotDeliveredPatientMessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

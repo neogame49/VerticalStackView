@@ -46,33 +46,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessagingCell" rowHeight="105" id="s7P-Xu-gaL" customClass="MessagingCell" customModule="MessagingPrototype" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="105"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s7P-Xu-gaL" id="jO3-h9-JlT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="104"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-Z0-4sm">
-                                            <rect key="frame" x="8" y="46" width="50" height="50"/>
-                                            <color key="backgroundColor" red="0.2342709808" green="1" blue="0.27155215760000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="CVS-Gr-FiZ"/>
-                                                <constraint firstAttribute="height" constant="50" id="owb-bT-b33"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Hyd-Z0-4sm" firstAttribute="leading" secondItem="jO3-h9-JlT" secondAttribute="leadingMargin" id="YOF-jw-2dC"/>
-                                        <constraint firstItem="Hyd-Z0-4sm" firstAttribute="bottom" secondItem="jO3-h9-JlT" secondAttribute="bottomMargin" id="hoG-5f-7Dn"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="avatarImageView" destination="Hyd-Z0-4sm" id="x1t-Nr-HJU"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="MFc-Q4-XYp" id="Dtj-LL-ZRv"/>
                             <outlet property="delegate" destination="MFc-Q4-XYp" id="9eJ-xS-mLw"/>

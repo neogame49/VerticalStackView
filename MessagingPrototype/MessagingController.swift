@@ -12,6 +12,9 @@ import UIKit
 class MessagingController: UITableViewController {
 
     let cellIdentifier = "MessagingCell"
+    let physicianMessageCellIdentifier = "PhysicianMessageCell"
+    let patientMessageCellIdentifier = "PatientMessageCell"
+    let notDeliveredPatientMessageCellIdentifier = "NotDeliveredPatientMessageCell"
     
     var cellStrings: [[String]] = {
         var stringArray = [
@@ -36,16 +39,20 @@ class MessagingController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MessagingCell.messagingViewWidth = self.tableView.frame.size.width / 2.0
+        MessageCell.MaxMessageViewWidth = self.tableView.frame.size.width / 2.0
         self.tableView.separatorStyle = .None
-        /*self.tableView.estimatedRowHeight = 70
-        self.tableView.rowHeight = UITableViewAutomaticDimension*/
+
+        PhysicianMessageCell.ShouldShowAvatar = self.traitCollection.userInterfaceIdiom == .Pad
+        self.tableView.registerClass(PhysicianMessageCell.self, forCellReuseIdentifier: self.physicianMessageCellIdentifier)
+        self.tableView.registerClass(PatientMessageCell.self, forCellReuseIdentifier: self.patientMessageCellIdentifier)
+        self.tableView.registerClass(NotDeliveredPatientMessageCell.self, forCellReuseIdentifier: self.notDeliveredPatientMessageCellIdentifier)
+
 
     }
 
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         print("viewWillTransitionToSize")
-        MessagingCell.messagingViewWidth = size.width / 2.0
+        MessageCell.MaxMessageViewWidth = size.width / 2.0
 
         let visibleCells = self.tableView.visibleCells
         self.tableView.reloadRowsAtIndexPaths(visibleCells.map{ self.tableView.indexPathForCell($0)!}, withRowAnimation: .None)
@@ -55,15 +62,22 @@ class MessagingController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MessagingCell
+        if indexPath.row % 5 == 0 {
+            return self.tableView.dequeueReusableCellWithIdentifier(notDeliveredPatientMessageCellIdentifier, forIndexPath: indexPath)
+        }
 
-        return cell
+        if indexPath.row % 2 == 0 {
+            return self.tableView.dequeueReusableCellWithIdentifier(physicianMessageCellIdentifier, forIndexPath: indexPath)
+        } else {
+            return self.tableView.dequeueReusableCellWithIdentifier(patientMessageCellIdentifier, forIndexPath: indexPath)
+        }
+
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let cell = cell as? MessagingCell {
+        if let cell = cell as? MessageCell {
             let messages = self.cellStrings[indexPath.row]
+            cell.deliveredLabel.text = "9:40 AM"
             cell.messages = messages
         }
     }
@@ -75,8 +89,12 @@ class MessagingController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
         let messages = self.cellStrings[indexPath.row]
-         let height = MessagingCell.heightForMessages(messages)
-        return height
+        if indexPath.row % 2 == 0 {
+            return PhysicianMessageCell.HeightForMessages(messages)
+        } else {
+            return PatientMessageCell.HeightForMessages(messages)
+        }
+
     }
 
 }
